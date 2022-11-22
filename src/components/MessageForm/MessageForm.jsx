@@ -32,7 +32,7 @@ export const MessageForm = ({ user }) => {
   const [messages, setMessages] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currDialogue, setCurrDialogue] = useState({});
-  const { dialogues } = useGetDialogues(currDialogue, arrivalMessage);
+  const { dialogues } = useGetDialogues([currDialogue, arrivalMessage]);
 
   const style = makeStyles();
 
