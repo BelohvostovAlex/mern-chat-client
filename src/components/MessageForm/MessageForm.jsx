@@ -55,13 +55,15 @@ export const MessageForm = ({ user }) => {
     fetchUsers();
 
     socket.current.on("getMessage", (data) => {
-      setArrivalMessage({
-        dialogueId: data.dialogueId,
-        sender: data.sender,
-        theme: data.theme,
-        text: data.text,
-        sendTime: Date.now(),
-      });
+      if (data.sender !== user._id) {
+        setArrivalMessage({
+          dialogueId: data.dialogueId,
+          sender: data.sender,
+          theme: data.theme,
+          text: data.text,
+          sendTime: Date.now(),
+        });
+      }
     });
   }, []);
 
