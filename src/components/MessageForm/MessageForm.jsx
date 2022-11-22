@@ -73,10 +73,8 @@ export const MessageForm = ({ user }) => {
     }
     if (arrivalMessage) {
       setOpen(true);
-      const { username } = users.find(
-        (user) => user._id === arrivalMessage.sender
-      );
-      setSenderName(username);
+      const user = users.find((user) => user._id === arrivalMessage.sender);
+      setSenderName(user?.username);
     }
   }, [arrivalMessage]);
 
