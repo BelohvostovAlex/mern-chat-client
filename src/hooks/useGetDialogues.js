@@ -3,7 +3,7 @@ import { useStateContext } from "../context/StateContext";
 
 import { getDialoguesService } from "../services/dialogueService";
 
-export const useGetDialogues = (dep1, dep2) => {
+export const useGetDialogues = (deps) => {
   const { user, getUser } = useStateContext();
 
   const [dialogues, setDialogues] = useState([]);
@@ -25,7 +25,7 @@ export const useGetDialogues = (dep1, dep2) => {
     };
 
     fetchDialogues();
-  }, [user._id, dep1, dep2]);
+  }, [user._id, ...deps]);
 
   return { dialogues };
 };
