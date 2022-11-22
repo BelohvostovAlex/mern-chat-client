@@ -154,7 +154,7 @@ export const MessageForm = ({ user }) => {
         <Autocomplete
           sx={style.textField}
           disablePortal
-          options={users.filter((item) => item._id !== user._id)}
+          options={users}
           getOptionLabel={(option) => option.username}
           isOptionEqualToValue={(option, value) =>
             option.username === value.username
