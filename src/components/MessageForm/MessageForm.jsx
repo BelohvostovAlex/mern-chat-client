@@ -55,15 +55,13 @@ export const MessageForm = ({ user }) => {
     fetchUsers();
 
     socket.current.on("getMessage", (data) => {
-      if (data.sender !== user._id) {
-        setArrivalMessage({
-          dialogueId: data.dialogueId,
-          sender: data.sender,
-          theme: data.theme,
-          text: data.text,
-          sendTime: Date.now(),
-        });
-      }
+      setArrivalMessage({
+        dialogueId: data.dialogueId,
+        sender: data.sender,
+        theme: data.theme,
+        text: data.text,
+        sendTime: Date.now(),
+      });
     });
   }, []);
 
@@ -77,6 +75,7 @@ export const MessageForm = ({ user }) => {
   useEffect(() => {
     if (
       arrivalMessage &&
+      arrivalMessage.sender !== user._id &&
       currDialogue?.members?.includes(arrivalMessage?.sender)
     ) {
       setMessages((prev) => [...prev, arrivalMessage]);
