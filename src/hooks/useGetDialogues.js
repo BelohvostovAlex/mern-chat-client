@@ -10,7 +10,7 @@ export const useGetDialogues = (deps) => {
 
   useEffect(() => {
     if (!user._id) {
-      getUser(sessionStorage.getItem("username"));
+      getUser(localStorage.getItem("username"));
     }
 
     const fetchDialogues = async () => {

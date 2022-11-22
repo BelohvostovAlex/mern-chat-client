@@ -19,8 +19,8 @@ export const LoginForm = () => {
     const candidate = await loginAuthService("/auth/login", { username });
 
     if (candidate) {
-      sessionStorage.setItem("auth", true);
-      sessionStorage.setItem("username", candidate.username);
+      localStorage.setItem("auth", true);
+      localStorage.setItem("username", candidate.username);
     }
     addUser(candidate);
   };

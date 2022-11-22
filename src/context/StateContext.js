@@ -20,7 +20,7 @@ export const StateContext = ({ children }) => {
   };
 
   const handleAuth = () => {
-    if (sessionStorage.getItem("auth")) {
+    if (localStorage.getItem("auth")) {
       setIsAuth(true);
     } else {
       setIsAuth(false);

@@ -12,11 +12,11 @@ export const Main = () => {
 
   const style = makeStyles();
 
-  const username = user?.username || sessionStorage.getItem("username");
+  const username = user?.username || localStorage.getItem("username");
 
   const handleLogout = () => {
-    sessionStorage.removeItem("auth");
-    sessionStorage.removeItem("username");
+    localStorage.removeItem("auth");
+    localStorage.removeItem("username");
     handleAuth();
   };
 

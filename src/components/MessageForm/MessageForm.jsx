@@ -23,6 +23,7 @@ export const MessageForm = ({ user }) => {
 
   const [open, setOpen] = useState(false);
   const [users, setUsers] = useState([]);
+  const [onlineUsers, setOnlineUsers] = useState([]);
 
   const [senderName, setSenderName] = useState("");
   const [recepient, setRecepient] = useState(null);
@@ -63,6 +64,13 @@ export const MessageForm = ({ user }) => {
       });
     });
   }, []);
+
+  useEffect(() => {
+    socket.current.on("getUsers", (users) => {
+      setOnlineUsers(users);
+    });
+    fetchUsers();
+  }, [onlineUsers]);
 
   useEffect(() => {
     if (
