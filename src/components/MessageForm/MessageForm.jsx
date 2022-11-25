@@ -78,7 +78,7 @@ export const MessageForm = ({ user }) => {
       arrivalMessage.sender !== user._id &&
       currDialogue?.members?.includes(arrivalMessage?.sender)
     ) {
-      setMessages((prev) => [...prev, arrivalMessage]);
+      setMessages((prev) => [arrivalMessage, ...prev]);
     }
     if (arrivalMessage) {
       setOpen(true);
