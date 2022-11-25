@@ -92,14 +92,11 @@ export const MessageForm = ({ user }) => {
   }, [user]);
 
   useEffect(() => {
-    const fetchMessages = () => {
-      const allMessages = dialogues.map(async (dialogue) => {
-        const data = await getMessagesMessageService(
-          `/messages/${currDialogue?._id}`
-        );
-        setMessages((prev) => [...prev, data]);
-        return data;
-      });
+    const fetchMessages = async () => {
+      const data = await getMessagesMessageService(
+        `/messages/${currDialogue?._id}`
+      );
+      setMessages(data);
     };
 
     fetchMessages();
