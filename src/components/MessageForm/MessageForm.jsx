@@ -100,7 +100,7 @@ export const MessageForm = ({ user }) => {
         return data;
       });
       console.log(allMessages);
-      setMessages(allMessages.flat());
+      setMessages(allMessages);
     };
 
     fetchMessages();
