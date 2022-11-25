@@ -97,10 +97,9 @@ export const MessageForm = ({ user }) => {
         const data = await getMessagesMessageService(
           `/messages/${currDialogue?._id}`
         );
+        setMessages((prev) => [...prev, data]);
         return data;
       });
-      console.log(allMessages);
-      setMessages(allMessages);
     };
 
     fetchMessages();
